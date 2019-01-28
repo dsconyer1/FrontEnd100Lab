@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <base href="/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="billInput">
+        </div>
+            <div class='btn-group' role='group'>
+              <button type="button" class="btn btn-secondary" value="10" id='tip10'>10%</button>
+              <button type="button" class="btn btn-secondary" value="15" id='tip15'>15%</button>
+              <button type="button" class="btn btn-secondary" value="20" id='tip20'>20%</button>
+              <button type="button" class="btn btn-secondary" value="0"  id='tipCustom'>Custom</button>
+              <input type="number" class="form-control" aria-label="Custom tip amount" id="customTipInput" min=0 max=100 step=1>
+            </div>
+            <div>
+              You are tipping <span id="tipPercent"></span>%
+            </div>
+            <br>
+            <h2>How many are splitting the check?</h2>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="payee1" value=1 checked>
+              <label class="form-check-label" for="payee1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="payee2" value=2>
+              <label class="form-check-label" for="payee2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="payee3" value=3>
+              <label class="form-check-label" for="payee3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="payee4" value=4>
+              <label class="form-check-label" for="payee4">4</label>
+            </div>
+            <ul class='list-group'>
+              <li class='list-group-item' id='billAmount'></li>
+              <li class='list-group-item' id='tipPercentAmount'></li>
+              <li class='list-group-item' id='tipAmount'></li>
+              <li class='list-group-item' id='totalAmount'></li>
+            </ul>
+    </div>
+</body>
+</html>

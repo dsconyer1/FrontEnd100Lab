@@ -1,0 +1,24 @@
+:root {
+    --focusColor: rgba(0,123,255,.25);
+    --borderColor: #80bdff;
+}
+h2{
+    font-size: 1rem; 
+}
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.btn-secondary {
+    border-radius: 0;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem var(--focusColor);
+}
+.form-control{
+    border-color: var(--borderColor);
+}
+.error{
+    --focusColor: red;
+    --borderColor: red;
+}
