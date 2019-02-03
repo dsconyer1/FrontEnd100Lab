@@ -51,6 +51,8 @@ function init() {
 }
 
 function processTipPercent(e) {
+    // JMG I like how you stored the tip amount as the value in the element. That'd make it easy to update from the HTML. Cool. Good Idea!
+
     storeTipPercent(parseInt(e.srcElement.value), e.srcElement.id);
     enableTipButtons();
     document.querySelector("#customTipInput").disabled = true;
@@ -118,7 +120,7 @@ function validateCustomTip(e) {
 
     let constraints = ['^(?:[0-9]{1,2,3})$', 'Value must be between 0 and 100.']
     let constraint = new RegExp(constraints[0], "");
-
+    // JMG proper use of a regex always gets extra credit in my book.
     if (value == "" || constraint.test(value)) {
         e.srcElement.setCustomValidity("");
     }
@@ -126,6 +128,7 @@ function validateCustomTip(e) {
         e.srcElement.setCustomValidity(constraints[1]);
     } 
 
+    // JMG: It looks like you are storing this twice here?
     storeTipPercent(value, customTipId);
     localStorage.setItem(customTipId, value);
     let customTipButton = document.querySelector(customTipId);
@@ -149,13 +152,17 @@ function processBillAmount() {
 }
 
 function numberOfPayees() {
-    let payees = 0;
-    document.querySelectorAll('.form-check-input').forEach((anInput) => {
-        if (anInput.checked) {   
-            payees = parseInt(anInput.value);
-        }
-    })
-    return payees;
+    // let payees = 0;
+    // document.querySelectorAll('.form-check-input').forEach((anInput) => {
+    //     if (anInput.checked) {   
+    //         payees = parseInt(anInput.value);
+    //     }
+    // })
+    // JMG yours was good. I just wanted to show an alternative.
+    return [...document.querySelectorAll('.form-check-input')]
+        .filter(aInput => aInput.checked)
+        .map(a => +a.value)
+        .reduce((a,b) => a + b, 0)
 }
 
 function updateOutput() {
